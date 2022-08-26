@@ -1,12 +1,22 @@
-const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(/\s/);
-const n = +input[0];
-const m = +input[1];
-const arr = input.slice(2, n+2);
-const pokemonMap = new Map(arr.map((v, i) => [v, i+1]));
-const question = input.slice(n+2);
-const answer = [];
-question.forEach(v => {
-    if (Number.isNaN(+v)) answer.push(pokemonMap.get(v));
-    else answer.push(arr[+v-1]);
-});
-console.log(answer.join("\n"));
+const input = require('fs')
+    .readFileSync('./input.txt')
+    .toString()
+    .trim()
+    .split('\n')
+    .map((e) => e.replaceAll('\r', ''));
+
+const A = input[0].split(' ')[1]; // 정답 갯수 5
+input.shift();
+let B = input.slice(-A); // 주어지는 문제 [25, Raichu, 3 ,Pidgey, kakuna]
+input.splice(-A); // 포켓폰 도감 26
+let C = [];
+let D = B.map((v) => !+v);
+
+for (let i = 0; i < A; i++) {
+    if (D[i] == false) {
+        C.push(input[B.map(Number)[i] - 1]);
+    } else {
+        C.push(input.indexOf(B[i]) + 1);
+    }
+}
+console.log(C.join('\n'));
