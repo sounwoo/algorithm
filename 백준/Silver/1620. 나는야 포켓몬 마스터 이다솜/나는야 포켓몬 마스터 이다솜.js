@@ -11,12 +11,18 @@ let B = input.slice(-A); // 주어지는 문제 [25, Raichu, 3 ,Pidgey, kakuna]
 input.splice(-A); // 포켓폰 도감 26
 let C = [];
 let D = B.map((v) => !+v);
+let X = {};
+
+for (let i = 0; i < input.length; i++) {
+    X[input[i]] = i;
+    X[i] = input[i];
+}
 
 for (let i = 0; i < A; i++) {
-    if (D[i] == false) {
-        C.push(input[B.map(Number)[i] - 1]);
+    if (D[i] == true) {
+        C.push(X[B[i]] + 1);
     } else {
-        C.push(input.indexOf(B[i]) + 1);
+        C.push(X[B[i] - 1]);
     }
 }
 console.log(C.join('\n'));
