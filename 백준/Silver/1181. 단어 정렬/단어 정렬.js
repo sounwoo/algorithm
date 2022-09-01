@@ -18,3 +18,8 @@ for (let i = 1; i <= arr[arr.length - 1].length; i++) {
 }
 
 console.log(answer.join('\n'));
+
+// let arr = Array.from(new Set(input));
+// arr = arr.sort((a, b) => a.length - b.length || a.localeCompare(b));
+// localeCompare() 대소문자 구분없이 알파벳 순서대로 정렬
+// console.log(arr.join('\n'));
