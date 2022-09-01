@@ -8,10 +8,7 @@ const input = require('fs')
 input.pop();
 
 for (let i = 0; i < input.length; i++) {
-    let reverse_input = input[i].split('').reverse().join('');
-    if (input[i] == reverse_input) {
-        console.log('yes');
-    } else {
-        console.log('no');
-    }
+    input[i] == input[i].split('').reverse().join('')
+        ? console.log('yes')
+        : console.log('no');
 }
