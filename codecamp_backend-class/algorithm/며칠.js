@@ -14,23 +14,43 @@
 // days(2) // 28
 // days(4) // 30
 
+const monthList = {
+    1: 31,
+    2: 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31,
+};
+
 function days(month) {
-    if (
-        month === 1 ||
-        month === 3 ||
-        month === 5 ||
-        month === 7 ||
-        month === 8 ||
-        month === 10 ||
-        month === 12
-    ) {
-        console.log('31');
-    } else if (month === 2) {
-        console.log('28');
-    } else {
-        console.log('30');
-    }
+    return monthList.month;
+
+    // if (
+    //     month === 1 ||
+    //     month === 3 ||
+    //     month === 5 ||
+    //     month === 7 ||
+    //     month === 8 ||
+    //     month === 10 ||
+    //     month === 12
+    // ) {
+    //     console.log('31');
+    // } else if (month === 2) {
+    //     console.log('28');
+    // } else {
+    //     console.log('30');
+    // }
 }
+days(1);
+days(2);
+days(4);
 
 // 1월 : 31일
 // 2월 : 28일
