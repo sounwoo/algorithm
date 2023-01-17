@@ -4,11 +4,13 @@ function solution(s) {
         return false
     } 
     
-    for(let i in s){
-           if (Number.isNaN(Number(s[i]))){ // Number.isNaN()함수는 어떤값이 NaN인지 판별 (NaN은 숫자가 아닌것을 판별)
-               return false
-           }
-    }
-
-    return true
+    s = s.split("").filter(el => {
+       return Number.isNaN(Number(el))
+    })
+    return s.length === 0 ? true: false
+    // for(let i in s){
+    //        if (Number.isNaN(Number(s[i]))){ // Number.isNaN()함수는 어떤값이 NaN인지 판별 (NaN은 숫자가 아닌것을 판별)
+    //            return false
+    //        }
+    // }
 }
