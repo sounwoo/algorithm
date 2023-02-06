@@ -1,19 +1,51 @@
+ const answerTable = [
+    // 1번 수포자가 찍는 방식
+    [ 1, 2, 3, 4, 5 ], // 5개 패턴
+    // 2번 수포자가 찍는 방식
+    [ 2, 1, 2, 3, 2, 4, 2, 5 ], // 8개 패턴
+    // 3번 수포자가 찍는 방식
+    [ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 ] // 10개 패턴
+]
+
 function solution(answers) {
-    var answer = [];
-    var a1 = [1, 2, 3, 4, 5];
-    var a2 = [2, 1, 2, 3, 2, 4, 2, 5]
-    var a3 = [ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+    const scoreList = answerTable.map((el, i) => {
+        const score = answers.reduce((acc,cur,j) => {
+            return acc + ( el[j % el.length] === cur ? 1 : 0 )
+        },0)
+        
+        return { student :  i + 1, score}
+    })
+    const biggest = Math.max(...scoreList.map((el) => {
+        return el.score
+    }))
+    
+    const answer = scoreList.filter((el) => {
+       
+        return el.score === biggest
+    }).map((el) => {
 
-    var num1 = answers.filter((a,i)=> a === a1[i%a1.length]).length;
-    var num2 = answers.filter((a,i)=> a === a2[i%a2.length]).length;
-    var num3 = answers.filter((a,i)=> a === a3[i%a3.length]).length;
-    var max = Math.max(num1,num2,num3);
-    let score = [num1,num2,num3]
-     for(let i =0 ; i <score.length; i++){
-    if(score[i] === max){
-      answer.push(i +1)
-    }
-  }
+        return el.student
+    })
 
-    return answer;
+    return answer
+//        let score = [0,0,0]
+       
+//         for(let i = 0; i < answers.length; i++){
+//             for(let j = 0; j < answerTable.length; j++){
+//                 const answer = answerTable[j][ i % answerTable[j].length]
+//                 if(answer === answers[i]){
+//                     score[j]++
+//                 }
+//             }
+//         }
+    
+//     const biggest = Math.max(...score)
+    
+//     const answer = [];
+//     for(let i = 0 ; i < score.length; i++){
+//         if(score[i] === biggest){
+//             answer.push(i + 1)
+//         }
+//     }
+//     return answer;
 }
