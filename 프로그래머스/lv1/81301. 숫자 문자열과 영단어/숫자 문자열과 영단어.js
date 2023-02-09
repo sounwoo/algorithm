@@ -7,5 +7,11 @@ function solution(s) {
     // numbers.forEach((num, i) => {
     //   s = s.split(num).join(i)
     // })
+    
+    // for(let i = 0; i < numbers.length; i++){
+    //     const regExp = new RegExp(numbers[i], "g")
+    //     s = s.replace(regExp,i)
+    // }
+    
   return Number(s)
 }
