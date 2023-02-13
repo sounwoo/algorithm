@@ -5,7 +5,14 @@ function solution(d, budget) {
       if(budget >= i){
         budget -= i
         count++
-      }else break;
+      }
     }
     return count 
+    
+    // const answer = d.sort((a,b)=> a-b).filter(money =>{
+    //     budget -= money
+    //     return budget >= 0
+    // })
+    //     return answer.length
+    
 }
