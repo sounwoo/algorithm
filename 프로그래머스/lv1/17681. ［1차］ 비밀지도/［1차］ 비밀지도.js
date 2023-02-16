@@ -1,16 +1,26 @@
 function solution(n, arr1, arr2) {
-  let newArr1 = [], newArr2 = [];
-  for(let i =0 ; i < arr1.length; i++){
-    newArr1.push(arr1[i].toString(2).padStart(n,0).split(''))
-    newArr2.push(arr2[i].toString(2).padStart(n,0).split(''))
-  }
-
-  
-  for(let i =0 ; i < newArr1.length; i++){
-    for(let j =0 ; j < newArr1[i].length; j++){
-      newArr1[i][j] === "1" || newArr2[i][j] === "1" ? newArr1[i][j] = "#" : newArr1[i][j] = " "
-    }
-  }
-  let result = newArr1.map((el)=>{return el.join("")})
-  return result 
+    return arr1.map((map1, i) =>{
+      map1 = map1.toString(2).padStart(n,"0")
+      const map2 = arr2[i].toString(2).padStart(n,"0")
+      return map1.split('').reduce(( acc, cur, j) => {
+        return acc + ( cur === '1' || map2[j] === "1"? "#" : " ")
+      },"")
+  })
+    
+    
+  // const answer = [];
+  // // let map1 = [], map2 = [];
+  // for(let i =0 ; i < arr1.length; i++){
+  //   answer[i] = "";
+  //   // map1.push(arr1[i].toString(2).padStart(n,0).split(''))
+  //   // map2.push(arr2[i].toString(2).padStart(n,0).split(''))
+  //   const map1 = arr1[i].toString(2).padStart(n,"0")
+  //   const map2 = arr2[i].toString(2).padStart(n,"0")
+  //   for(let j =0 ; j < map1.length; j++){
+  //       answer[i] += 
+  //         map1[j] === "1" || map2[j] === "1" ?  "#" : " "
+  //   }
+  // }
+  // // let result = map1.map((el)=>{return el.join("")})
+  // return answer
 }
