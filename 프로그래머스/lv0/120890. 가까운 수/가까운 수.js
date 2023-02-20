@@ -1,3 +1,5 @@
 function solution(array, n) {
-  return +array.filter(a => Math.abs(a-n) === Math.min(...array.map(a => Math.abs(a-n)))).sort((a,b) => a-b)[0]
+     array = array.map(v => v - n).sort((a, b) => a - b);
+  
+  return n + array.sort((a, b) => Math.abs(a) - Math.abs(b))[0];
 }
