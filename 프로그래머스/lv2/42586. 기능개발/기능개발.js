@@ -1,15 +1,18 @@
 function solution(progresses, speeds) {
-  const answer = [];
-  let day = 0
-  
-  for(let i = 0; i<progresses.length; i++){
-    const process = Math.ceil((100-progresses[i])/ speeds[i])
-    if( day < process ) {
-      day = process
-      answer[ answer.length ] = 1;
-    }else answer[ answer.length - 1 ] ++
+    let count = [], answer =[];
+    const temp = progresses.map((el,i)=>{
+      return Math.ceil((100 - el)/ speeds[i])
+    })
     
+    let distribution = temp[0]
+  for(let i =0; i <= temp.length; i++){
+    if(temp[i] <= distribution)count.push(temp[i])
+    else{
+     distribution = temp[i]
+     answer.push(count.length)
+     count = []
+     count.push(temp[i])
+   }
   }
     return answer
-  
 }
