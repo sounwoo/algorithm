@@ -3,4 +3,6 @@ function solution(money) {
   result[0] += Math.floor(money / 5500)
   result[1] = money -result[0] * 5500
 return result
+    //[Math.floor(money / 5500),money % 5500]
+    
 }
