@@ -1,5 +1,5 @@
 function solution(num_list) {
-  const even =[], odd = [];
-  num_list.forEach((el)=>el % 2 === 0 ? even.push(el) : odd.push(el)) 
-  return [even.length, odd.length]
+  const num = [0,0]
+  num_list.forEach((el)=>el % 2 === 0 ? num[0]++ : num[1]++) 
+  return num
 }
