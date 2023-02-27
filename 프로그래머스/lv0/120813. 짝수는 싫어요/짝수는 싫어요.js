@@ -1,5 +1,3 @@
 function solution(n) {
-    return new Array(n + 1).fill(1).map((el,i) =>{
-      if(i % 2 !== 0) return i
-    }).filter((el) => el)
+    return new Array(n).fill(1).map((el,i) =>el + i).filter((el) => el % 2 !== 0)
 }
