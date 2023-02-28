@@ -1,17 +1,31 @@
 function solution(n, words) {
-    const answer = [0,0]
-  let user = [words[0]];
-  
-  for(let i =1; i < words.length; i++){
-    let word = words[i - 1];
-    let nextWord = words[i]
-    if(word.slice(-1) === nextWord[0] && !user.includes(nextWord)){
-      user.push(nextWord)
-    }else{
-      return [(i%n+1), parseInt(i/n) + 1]
+    for(let i = 1; i < words.length; i++){
+        const player = (i % n) + 1
+        const turn = Math.floor(i/n) + 1
+        const preWord = words[i - 1][ words[i - 1].length - 1]
+        const nowWord = words[i][0]
+    
+        if(preWord !== nowWord || words.indexOf( words[i] ) !== i) return [player,  turn]
     }
-  }
-  return answer
+    
+    return [ 0, 0 ]
+    
+//     let stop = false
+//     return words.slice( 1 ).reduce(( acc, cur ,i )=> {
+//         const nowWord = cur[0];
+//         const prevWord = words[i][words[i].length- 1]
+    
+//         i++
+//         const player = (i % n) +1
+//         const trun = Math.floor(i / n) +1
+    
+//         if(!stop && (nowWord !== prevWord|| words.indexOf(words[i]) !== i)) {
+//             stop = true
+//             return [ player, trun  ]
+//         }
+//     return acc
+//   },[0,0])
+    
   // const temp = {}, temp2 = [];
   // let count = 1, emtyp = [], result = []
   // for(let i =1; i <= n; i++){
