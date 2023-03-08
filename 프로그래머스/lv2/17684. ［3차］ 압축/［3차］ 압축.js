@@ -5,17 +5,28 @@ function solution(msg) {
     dictionary[ String.fromCharCode(i) ] = index++
   }
   
-  const answer = [];
-  let str = ""
-  for(let i =0 ; i < msg.length; i++){
-    str += msg[i]
+  let str = '';
+  return msg.split("").reduce((acc,cur,i) => {
+    str += cur
     const next = str + msg[i + 1]
-    
-    if( !dictionary[ next ] ) {
-      dictionary[ next ] = index++
-      answer.push(dictionary[ str ])
-      str = '' 
+    if( !dictionary[ next ] ){
+        if( msg[i +1]) dictionary[ next ] = index++
+        acc.push( dictionary[str] )
+        str = ''
     }
-  }
-  return answer
+    return acc
+  },[])
+//   const answer = [];
+//   let str = ""
+//   for(let i =0 ; i < msg.length; i++){
+//     str += msg[i]
+//     const next = str + msg[i + 1]
+    
+//     if( !dictionary[ next ] ) {
+//       dictionary[ next ] = index++
+//       answer.push(dictionary[ str ])
+//       str = '' 
+//     }
+//   }
+//   return answer
 }
