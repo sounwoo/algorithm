@@ -1,10 +1,9 @@
 function solution(rny_string) {
-    let word = ""
-    rny_string.split('').forEach((el) => {
-        if(el==='m'){
-            el = "rn"
-        }
-        word += el
-    })
-    return word
+    return rny_string.replaceAll('m', 'rn')
+    // let word = ""
+    // rny_string.split('').forEach((el) => {
+    //     if(el==='m') el = "rn"
+    //     word += el
+    // })
+    // return word
 }
