@@ -1,5 +1,3 @@
 function solution(names) {
-    return names.filter((el,i) =>{
-        if(i % 5 === 0) return el 
-    })
+    return names.filter((_,i) => !(i % 5))
 }
