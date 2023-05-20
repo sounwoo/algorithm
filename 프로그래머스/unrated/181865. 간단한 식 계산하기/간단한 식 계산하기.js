@@ -7,4 +7,5 @@ function solution(binomial) {
     }
     const [a,b,c] = binomial.split(" ")
     return obj(a,b,c)
+    // return eval(binomial)
 }
