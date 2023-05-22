@@ -1,14 +1,9 @@
 function solution(n) {
     const result = [n]
     
-    while(n !== 1){
-        if(n % 2 === 0 ){
-            result.push(n / 2); 
-            n = n / 2
-        }else{
-          result.push(3 * n + 1);
-          n = 3 * n + 1  
-        } 
+    while(result.slice(-1) > 1){
+        const temp = result.slice(-1)
+        temp % 2 === 0 ? result.push(temp / 2) : result.push(3 * temp + 1)
     }
     return result
 }
