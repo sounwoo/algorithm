@@ -1,9 +1,8 @@
 function solution(num_list) {
     let count = 0 
     num_list.forEach((el) =>{
-        let temp = el
-        while(temp > 1){
-            temp = temp % 2 === 0 ? temp / 2 : (temp - 1) / 2
+        while(el > 1){
+            el = el % 2 === 0 ? el / 2 : (el - 1) / 2
             count++
         }
     })
