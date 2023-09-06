@@ -6,10 +6,7 @@ const input = fs
     .split('\n');
 
 function solution() {
-    const result = input[0].split(' ');
-    const langth = result.length;
-
-    console.log(result[0] === '' || result[langth - 1] === '' ? langth - 1 : langth);
+    console.log(input[0].split(' ').filter((el) => el).length);
 }
 
 solution();
