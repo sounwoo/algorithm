@@ -16,7 +16,7 @@ function solution() {
             pow = (pow * a) % 10;
         }
 
-        return pow ===0 ? 10 : pow;
+        return pow || 10 ;
     });
     console.log(result.join('\n'));
 }
