@@ -1,11 +1,8 @@
 function solution(food) {
-    const answer = [0]
-    for(let i = food.length; i > 0; i--){
-        const temp = Math.floor(food[i] / 2)
-        for(let j = 0; j < temp; j++){
-            answer.push(i)
-            answer.unshift(i)
-        }
+    let res = '';
+    for (let i = 1; i < food.length; i++) {
+        res += String(i).repeat(Math.floor(food[i]/2));
     }
-    return answer.join('')
+
+    return res + '0' + [...res].reverse().join('');
 }
