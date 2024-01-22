@@ -1,0 +1,5 @@
+const fs=require('fs')
+let input=fs.readFileSync('/dev/stdin').toString().split(' ')
+const r=parseInt(input[0])
+const s=parseInt(input[1])
+console.log(2*s-r)
