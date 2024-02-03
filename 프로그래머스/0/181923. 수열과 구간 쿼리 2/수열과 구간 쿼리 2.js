@@ -1,9 +1,8 @@
 function solution(arr, queries) {
-    return queries.reduce((acc, cur) => {
-        const [to, from, val] = cur
-        const range = arr.slice(to, from+1)
-        const biggerThan = range.filter(a => a > val)
-        if(!biggerThan.length) return [...acc, -1]
-        return [...acc, Math.min(...biggerThan)]
-    }, [])
+    return queries.reduce((acc,cur) =>{
+        const [s,e,k] = cur
+        const temp = arr.slice(s,e+1).filter(el => el > k)
+        const result = temp.length ? Math.min(...temp): -1
+        return[...acc,result]
+    },[])
 }
